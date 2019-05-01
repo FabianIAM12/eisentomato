@@ -1,16 +1,19 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Todo} from './todo';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class TodoDataService {
+  // @Output() newTodoCreated = new EventEmitter<any>();
+  @Output() newTodoCreated = new Subject();
 
-  // Placeholder for last id so we can simulate
+    // Placeholder for last id so we can simulate
   // automatic incrementing of ids
-  lastId: number = 0;
+  lastId = 0;
 
   // Placeholder for todos
   todos: Todo[] = [];
-  todos_done: Todo[] = [];
+  todosDone: Todo[] = [];
 
   constructor() {}
 
@@ -20,6 +23,8 @@ export class TodoDataService {
       todo.id = ++this.lastId;
     }
     this.todos.push(todo);
+    this.newTodoCreated.next(todo);
+
     return this;
   }
 
@@ -28,15 +33,15 @@ export class TodoDataService {
     if (list === 'list') {
       this.todos = this.todos.filter(todo => todo.id !== id);
     } else if (list === 'done_list') {
-      this.todos_done = this.todos_done.filter(todo => todo.id !== id);
+      this.todosDone = this.todosDone.filter(todo => todo.id !== id);
     }
 
     return this;
   }
 
   // Simulate PUT /todos/:id
-  updateTodoById(id: number, values: Object = {}): Todo {
-    let todo = this.getTodoById(id);
+  updateTodoById(id: number, values: object = {}): Todo {
+    const todo = this.getTodoById(id);
     if (!todo) {
       return null;
     }
@@ -50,7 +55,7 @@ export class TodoDataService {
   }
 
   getAllDoneTodos(): Todo[] {
-    return this.todos_done;
+    return this.todosDone;
   }
 
   // Simulate GET /todos/:id
@@ -62,13 +67,13 @@ export class TodoDataService {
 
   // Toggle todo complete
   toggleTodoComplete(todo: Todo) {
-    let updatedTodo = this.updateTodoById(todo.id, {
+    const updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete
     });
     return updatedTodo;
   }
 
   toggleTodoToDone(todo: Todo) {
-    this.todos_done.push(todo);
+    this.todosDone.push(todo);
   }
 }

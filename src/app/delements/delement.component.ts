@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TodoDataService} from '../todo/todo-data.service';
 
 @Component({
@@ -7,4 +7,15 @@ import {TodoDataService} from '../todo/todo-data.service';
   styleUrls: ['delement.scss'],
   providers: [TodoDataService]
 })
-export class DelementComponent {}
+export class DelementComponent {
+  private _task: string;
+
+  get task(): string {
+    return this._task;
+  }
+
+  @Input('task')
+  set task(task: string) {
+    this._task = task;
+  }
+}

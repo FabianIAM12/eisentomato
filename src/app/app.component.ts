@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {TodoDataService} from './todo/todo-data.service';
 import {Todo} from './todo/todo';
 
@@ -14,7 +14,6 @@ export class AppComponent {
   constructor(private todoDataService: TodoDataService) {}
 
   get todos() {
-    console.log(this.todoDataService);
     return this.todoDataService.getAllTodos();
   }
 
@@ -23,8 +22,10 @@ export class AppComponent {
   }
 
   addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo;
+    if (this.newTodo.title !== '') {
+      this.todoDataService.addTodo(this.newTodo);
+      this.newTodo = new Todo;
+    }
   }
 
   toggleTodoComplete(todo) {
