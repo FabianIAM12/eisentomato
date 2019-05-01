@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 export class TodoDataService {
   // @Output() newTodoCreated = new EventEmitter<any>();
   @Output() newTodoCreated = new Subject();
+  @Output() newTodoDeleted = new Subject();
 
     // Placeholder for last id so we can simulate
   // automatic incrementing of ids
@@ -29,13 +30,13 @@ export class TodoDataService {
   }
 
   // Simulate DELETE /todos/:id
-  deleteTodoById(id: number, list: string): TodoDataService {
+  deleteTodo(delTodo: Todo, list: string): TodoDataService {
     if (list === 'list') {
-      this.todos = this.todos.filter(todo => todo.id !== id);
+      this.todos = this.todos.filter(todo => todo.id !== delTodo.id);
+      this.newTodoDeleted.next(delTodo);
     } else if (list === 'done_list') {
-      this.todosDone = this.todosDone.filter(todo => todo.id !== id);
+      this.todosDone = this.todosDone.filter(todo => todo.id !== delTodo.id);
     }
-
     return this;
   }
 

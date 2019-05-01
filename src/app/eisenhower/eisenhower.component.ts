@@ -10,11 +10,18 @@ import {Todo} from '../todo/todo';
 export class EisenhowerComponent implements OnInit {
   constructor(private todoDataService: TodoDataService) {}
 
-  list: string[] = [];
+  list: Todo[] = [];
 
   ngOnInit() {
       this.todoDataService.newTodoCreated.subscribe({
-          next: (todo) => this.list.push(todo.title)
+          next: (todo) => this.list.push(new Todo(todo))
+      });
+
+      this.todoDataService.newTodoDeleted.subscribe({
+          next: (todo) => {
+              const deleteObj = new Todo(todo);
+              this.list = this.list.filter(todo => todo.id !== deleteObj.id);
+          }
       });
   }
 

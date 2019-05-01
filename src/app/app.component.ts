@@ -30,10 +30,10 @@ export class AppComponent {
 
   toggleTodoComplete(todo) {
     this.todoDataService.toggleTodoToDone(todo);
-    this.todoDataService.deleteTodoById(todo.id, 'list');
+    this.todoDataService.deleteTodo(todo, 'list');
   }
 
   removeTodoFromDone(todo) {
-    this.todoDataService.deleteTodoById(todo.id, 'done_list');
+    this.todoDataService.deleteTodo(todo, 'done_list');
   }
 }

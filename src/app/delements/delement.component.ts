@@ -5,7 +5,6 @@ import {TodoDataService} from '../todo/todo-data.service';
   selector: 'app-delement',
   templateUrl: 'delement.html',
   styleUrls: ['delement.scss'],
-  providers: [TodoDataService]
 })
 export class DelementComponent {
   private _task: string;
