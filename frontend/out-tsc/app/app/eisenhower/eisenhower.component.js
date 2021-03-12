@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate, __metadata } from "tslib";
 import { TodoDataService } from '../todo/todo-data.service';
 import { Component } from '@angular/core';
 import { Todo } from '../todo/todo';
@@ -23,16 +23,16 @@ var EisenhowerComponent = /** @class */ (function () {
         get: function () {
             return this.list;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
-    EisenhowerComponent = tslib_1.__decorate([
+    EisenhowerComponent = __decorate([
         Component({
             selector: 'app-eisenhower',
             templateUrl: 'eisenhower.html',
             styleUrls: ['eisenhower.scss'],
         }),
-        tslib_1.__metadata("design:paramtypes", [TodoDataService])
+        __metadata("design:paramtypes", [TodoDataService])
     ], EisenhowerComponent);
     return EisenhowerComponent;
 }());

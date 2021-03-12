@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate, __metadata } from "tslib";
 import { Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 var TodoDataService = /** @class */ (function () {
@@ -66,17 +66,17 @@ var TodoDataService = /** @class */ (function () {
     TodoDataService.prototype.toggleTodoToDone = function (todo) {
         this.todosDone.push(todo);
     };
-    tslib_1.__decorate([
+    __decorate([
         Output(),
-        tslib_1.__metadata("design:type", Object)
+        __metadata("design:type", Object)
     ], TodoDataService.prototype, "newTodoCreated", void 0);
-    tslib_1.__decorate([
+    __decorate([
         Output(),
-        tslib_1.__metadata("design:type", Object)
+        __metadata("design:type", Object)
     ], TodoDataService.prototype, "newTodoDeleted", void 0);
-    TodoDataService = tslib_1.__decorate([
+    TodoDataService = __decorate([
         Injectable(),
-        tslib_1.__metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [])
     ], TodoDataService);
     return TodoDataService;
 }());

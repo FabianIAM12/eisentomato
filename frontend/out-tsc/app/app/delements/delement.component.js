@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate, __metadata } from "tslib";
 import { Component, Input } from '@angular/core';
 var DelementComponent = /** @class */ (function () {
     function DelementComponent() {
@@ -10,15 +10,15 @@ var DelementComponent = /** @class */ (function () {
         set: function (task) {
             this._task = task;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
-    tslib_1.__decorate([
+    __decorate([
         Input('task'),
-        tslib_1.__metadata("design:type", String),
-        tslib_1.__metadata("design:paramtypes", [String])
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
     ], DelementComponent.prototype, "task", null);
-    DelementComponent = tslib_1.__decorate([
+    DelementComponent = __decorate([
         Component({
             selector: 'app-delement',
             templateUrl: 'delement.html',

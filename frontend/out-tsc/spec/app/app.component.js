@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate, __metadata } from "tslib";
 import { Component } from '@angular/core';
 import { TodoDataService } from './todo/todo-data.service';
 import { Todo } from './todo/todo';
@@ -11,14 +11,14 @@ var AppComponent = /** @class */ (function () {
         get: function () {
             return this.todoDataService.getAllTodos();
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(AppComponent.prototype, "done_todos", {
         get: function () {
             return this.todoDataService.getAllDoneTodos();
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     AppComponent.prototype.addTodo = function () {
@@ -34,14 +34,14 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.removeTodoFromDone = function (todo) {
         this.todoDataService.deleteTodo(todo, 'done_list');
     };
-    AppComponent = tslib_1.__decorate([
+    AppComponent = __decorate([
         Component({
             selector: 'app-root',
             templateUrl: './app.component.html',
             styleUrls: ['./app.component.scss'],
             providers: [TodoDataService]
         }),
-        tslib_1.__metadata("design:paramtypes", [TodoDataService])
+        __metadata("design:paramtypes", [TodoDataService])
     ], AppComponent);
     return AppComponent;
 }());
