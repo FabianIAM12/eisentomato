@@ -1,0 +1,92 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Eisentomato</h1>
+  <p class="lead">Quickly build an effective pricing. It's built components.</p>
+</div>
+
+<div class="container">
+  <top-list (emitList)="setList($event)" *ngIf="lists" [lists]="lists"></top-list>
+
+  <div *ngIf="activeList" class="card-deck mb-3 text-center">
+    <!-- 0 -->
+    <div class="card mb-6 box-shadow card-height">
+      <div class="card-body note-border">
+
+        <div class="example-box" *ngFor="let task of activeList.tasks" cdkDragBoundary=".card-height" cdkDrag (cdkDragEnded)="dropped($event)">
+          {{ task.title }}
+        </div>
+
+        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <div class="card mb-6 box-shadow card-height">
+      <div class="card-body">
+        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck mb-3 text-center">
+    <!-- 2 -->
+    <div class="card mb-6 box-shadow card-height">
+      <div class="card-body">
+        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+      </div>
+    </div>
+    <!-- 3 -->
+    <div class="card mb-6 box-shadow card-height">
+      <div class="card-body">
+        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-12 box-shadow">
+    <div class="card-body">
+      Focus: Main Task - 12:45
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mt-2 text-center">
+      <button class="btn btn-primary m-1">Start</button>
+      <button class="btn btn-primary m-1">Stop</button>
+      <button class="btn btn-primary m-1">Reset</button>
+    </div>
+  </div>
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img alt="" class="mb-2" height="24" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+             width="24">
+        <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Cool stuff</a></li>
+          <li><a class="text-muted" href="#">Random feature</a></li>
+          <li><a class="text-muted" href="#">Team feature</a></li>
+          <li><a class="text-muted" href="#">Stuff for developers</a></li>
+          <li><a class="text-muted" href="#">Another one</a></li>
+          <li><a class="text-muted" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Figma Prototype</a></li>
+          <li><a class="text-muted" href="#">Miro Board</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Imprint</a></li>
+          <li><a class="text-muted" href="#">About me</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
