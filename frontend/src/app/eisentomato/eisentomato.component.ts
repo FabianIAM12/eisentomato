@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ListService} from "../list.service";
 import {List} from "./list";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
+import {CdkDrag, CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-eisentomato',
@@ -9,12 +10,31 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
   styleUrls: ['./eisentomato.component.scss']
 })
 export class EisentomatoComponent implements OnInit {
+  q0 = [];
+  q1 = [];
+  q2 = [];
+  q3 = [];
+
+  todo = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep'
+  ];
+
+  done = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+
   lists: List[];
   activeList: List;
 
   constructor(private listService: ListService,
-              private route: ActivatedRoute) {
-  }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.lists = this.listService.getLists();
@@ -22,7 +42,6 @@ export class EisentomatoComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          console.log(params);
           this.setList(+params['id']);
         }
       );
@@ -34,10 +53,31 @@ export class EisentomatoComponent implements OnInit {
     } else {
       this.activeList = this.listService.getList(0);
     }
-      // this.router.navigate(['lists', 0], {relativeTo: this.route});
   }
 
-  public dropped(event) {
+  public test(event: any) {
+    //console.log(event.element.nativeElement.offsetParent);
+  }
+
+  public dropped(event: any) {
+    console.log(event.distance);
+    console.log(event.source.element.nativeElement.offsetParent.id);
+    console.log(event.source);
+    // console.log(event.previousContainer);
+    // console.log(event.container);
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    console.log('---');
     console.log(event);
+
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 }

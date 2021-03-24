@@ -1,42 +1,65 @@
+<!--
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Eisentomato</h1>
-  <p class="lead">Quickly build an effective pricing. It's built components.</p>
+  <p class="lead">Combining the Eisenhower's Matrix and the Pomodoro Technique.</p>
 </div>
+-->
 
 <div class="container">
   <top-list (emitList)="setList($event)" *ngIf="lists" [lists]="lists"></top-list>
 
-  <div *ngIf="activeList" class="card-deck mb-3 text-center">
-    <!-- 0 -->
-    <div class="card mb-6 box-shadow card-height">
-      <div class="card-body note-border">
-
-        <div class="example-box" *ngFor="let task of activeList.tasks" cdkDragBoundary=".card-height" cdkDrag (cdkDragEnded)="dropped($event)">
-          {{ task.title }}
+  <div class="quadrants-container">
+    <div *ngIf="activeList" class="card-deck mb-3 text-center" cdkDropListGroup>
+      <!-- 0 -->
+      <div class="card mb-6 box-shadow card-height" id="1">
+        <div class="card-body note-border">
+          <div (cdkDragEnded)="dropped($event)"
+               (cdkDragEntered)="test($event)"
+               *ngFor="let task of activeList.tasks"
+               [ngStyle]="{'left.px': task.coordinate.x, 'top.px': task.coordinate.y}"
+               cdkDrag cdkDragBoundary=".quadrants-container" class="example-box">
+            {{ task.title }}
+          </div>
+          <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
         </div>
-
-        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+      </div>
+      <!-- 1 -->
+      <div class="card mb-6 box-shadow card-height" id="2">
+        <div class="card-body">
+          <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+        </div>
       </div>
     </div>
-
-    <!-- 1 -->
-    <div class="card mb-6 box-shadow card-height">
-      <div class="card-body">
-        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+    <div class="card-deck mb-3 text-center">
+      <!-- 2 -->
+      <div class="card mb-6 box-shadow card-height" id="3">
+        <div class="card-body"
+             cdkDropList
+             #todoList="cdkDropList"
+             [cdkDropListData]="todo"
+             [cdkDropListConnectedTo]="[doneList]"
+             class="example-list"
+             (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let t of todo" cdkDrag class="example-box">
+               <!-- [ngStyle]="{'left.px': task.coordinate.x, 'top.px': task.coordinate.y}" -->
+               {{ t }}
+          </div>
+          <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="card-deck mb-3 text-center">
-    <!-- 2 -->
-    <div class="card mb-6 box-shadow card-height">
-      <div class="card-body">
-        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
-      </div>
-    </div>
-    <!-- 3 -->
-    <div class="card mb-6 box-shadow card-height">
-      <div class="card-body">
-        <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+      <!-- 3 -->
+      <div class="card mb-6 box-shadow card-height">
+        <div class="card-body"
+             cdkDropList
+             #doneList="cdkDropList"
+             [cdkDropListData]="done"
+             [cdkDropListConnectedTo]="[todoList]">
+          <div *ngFor="let t of done" cdkDrag class="example-box">
+            <!-- [ngStyle]="{'left.px': task.coordinate.x, 'top.px': task.coordinate.y}" -->
+            {{ t }}
+          </div>
+          <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
+        </div>
       </div>
     </div>
   </div>

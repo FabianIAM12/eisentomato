@@ -5,7 +5,7 @@ import {EisentomatoComponent} from "./eisentomato/eisentomato.component";
 const appRoutes: Routes = [
   { path: '', redirectTo: '/lists', pathMatch: 'full' },
   { path: 'lists', component: EisentomatoComponent, children: [
-      { path: ':id', component: EisentomatoComponent },
+      { path: ':id', component: EisentomatoComponent, pathMatch: 'full' },
       { path: '', component: EisentomatoComponent },
     ] },
 ];

@@ -13,8 +13,8 @@ export class ListService {
 
   private lists: List[] = [
     new List('Privat', [
-      new Task('Katzenfutter', 0, new Coordinate(16, 27)),
-      new Task('Muell raus', 0, new Coordinate(10, 15))]),
+      new Task('Katzenfutter', 0, new Coordinate(0, 0)),
+      /* new Task('Muell raus', 0, new Coordinate(0, 0)) */]),
     new List('Job', [
       new Task('Aquise', 0, new Coordinate(20, 28)),
       new Task('Dingeling', 0, new Coordinate(47, 22))]),
