@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {CdkDragEnd} from "@angular/cdk/drag-drop";
 import {Coordinate} from "../../shared/coordinate.model";
-import {ListService} from "../../list.service";
-import { Task } from 'src/app/shared/task.model';
+import {ListService} from "../../services/list.service";
+import {Task} from 'src/app/shared/task.model';
 
 @Component({
   selector: 'task',
@@ -11,23 +11,19 @@ import { Task } from 'src/app/shared/task.model';
 })
 export class TaskComponent implements AfterViewInit {
 
-  constructor(private listService: ListService) { }
-
   @Input() task: Task;
-  moved2: any;
+  @ViewChild('taskElement') taskElement: any;
 
-  ngAfterViewInit(): void {
-    const task = document.getElementById(this.task.uuid);
-    task.style.left = `${this.task.coordinate.x}.px`;
-    task.style.top = `${this.task.coordinate.y}.px`;
+  constructor(private listService: ListService) {
   }
 
-  public updateTaskPosition(uuid: string, position: Coordinate) {
-    this.listService.updateTask(0, uuid, position);
+  ngAfterViewInit(): void {
+    this.taskElement.nativeElement.style.left = `${this.task.coordinate.x}.px`;
+    this.taskElement.nativeElement.style.top = `${this.task.coordinate.y}.px`;
   }
 
   public draggedElement(event: CdkDragEnd) {
-    this.updateTaskPosition(event.source.getRootElement().id, event.source.getFreeDragPosition());
+    // TODO: update list
+    this.listService.updateTaskPosition(0, event.source.getRootElement().id, event.source.getFreeDragPosition());
   }
-
 }

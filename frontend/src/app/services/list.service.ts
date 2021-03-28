@@ -1,15 +1,13 @@
 import {Injectable} from '@angular/core';
-import {List} from "./eisentomato/list";
-import {Task} from "./shared/task.model";
-import {Coordinate} from "./shared/coordinate.model";
+import {List} from "../eisentomato/list";
+import {Task} from "../shared/task.model";
+import {Coordinate} from "../shared/coordinate.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
-
   public name: string;
-  public tasks: Task[];
 
   private lists: List[] = [
     new List('Job', [
@@ -41,17 +39,7 @@ export class ListService {
     return this.lists[index];
   }
 
-  getTask(index, uuid: string): Task {
-    return this.lists[index].tasks.find(task => task.uuid === uuid);
-  }
-
-  updateTask(index, uuid: string, move: Coordinate) {
-    // console.log(this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.x);
-    // console.log(this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.y);
-    // console.log(coordinate);
-
-    console.log(move.x);
-    console.log(move.y);
+  updateTaskPosition(index, uuid: string, move: Coordinate) {
     this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.x += move.x;
     this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.y += move.y;
   }

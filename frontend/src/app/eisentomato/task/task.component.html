@@ -1,4 +1,5 @@
-<div (cdkDragEnded)="draggedElement($event)"
+<div #taskElement
+     (cdkDragEnded)="draggedElement($event)"
      cdkDrag
      cdkDragBoundary=".quadrants-container"
      class="example-box" id="{{task.uuid}}">

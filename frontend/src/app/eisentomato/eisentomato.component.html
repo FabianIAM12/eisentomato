@@ -3,53 +3,10 @@
 
   <div cdkDropListGroup class="quadrants-container">
     <div *ngIf="activeList" class="card-deck mb-3 text-center">
-      <!-- 0 -->
-      <div class="card mb-6 box-shadow card-height" id="1">
-        <div class="card-body quadrant-cart">
-          <task *ngFor="let task of getQuadrantTasks(1)" [task]="task"></task>
-          <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
-        </div>
-      </div>
-      <!-- 1 -->
-      <div class="card mb-6 box-shadow card-height" id="2">
-        <div class="card-body">
-          <div (cdkDragEnded)="draggedElement($event)" (cdkDragMoved)="movedElement($event)" *ngFor="let task of getQuadrantTasks(2)"
-               [ngStyle]="{'left.px': task.coordinate.x, 'top.px': task.coordinate.y}"
-               cdkDrag
-               cdkDragBoundary=".quadrants-container"
-               class="example-box" id="{{task.uuid}}">
-            {{ task.title }}
-          </div>
-          <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
-        </div>
-      </div>
-    </div>
-    <div class="card-deck mb-3 text-center">
-      <!-- 2 -->
-      <div class="card mb-6 box-shadow card-height" id="3">
-        <div class="card-body">
-          <div (cdkDragEnded)="draggedElement($event)" (cdkDragMoved)="movedElement($event)" *ngFor="let task of getQuadrantTasks(3)"
-               [ngStyle]="{'left.px': task.coordinate.x, 'top.px': task.coordinate.y}"
-               cdkDrag
-               cdkDragBoundary=".quadrants-container"
-               class="example-box" id="{{task.uuid}}">
-            {{ task.title }}
-          </div>
-          <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
-        </div>
-      </div>
-      <!-- 3 -->
-      <div class="card mb-6 box-shadow card-height" id="4">
-        <div class="card-body">
-          <div (cdkDragEnded)="draggedElement($event)" (cdkDragMoved)="movedElement($event)" *ngFor="let task of getQuadrantTasks(4)"
-               [ngStyle]="{'left.px': task.coordinate.x, 'top.px': task.coordinate.y}"
-               cdkDrag
-               cdkDragBoundary=".quadrants-container"
-               class="example-box" id="{{task.uuid}}">
-            {{ task.title }}
-          </div>
-        </div>
-      </div>
+      <quadrant [tasks]="getQuadrantTasks(1)"></quadrant>
+      <quadrant [tasks]="getQuadrantTasks(2)"></quadrant>
+      <quadrant [tasks]="getQuadrantTasks(3)"></quadrant>
+      <quadrant [tasks]="getQuadrantTasks(4)"></quadrant>
     </div>
   </div>
 
