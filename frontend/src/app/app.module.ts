@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { EisentomatoComponent } from './eisentomato/eisentomato.component';
-import {ListService} from "./services/list.service";
+import {TaskService} from "./services/task.service";
 import {AppRoutingModule} from "./app.routing.module";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {TopListComponent} from "./eisentomato/top-list/top-list.component";
 import {TaskComponent} from "./eisentomato/task/task.component";
 import {QuadrantComponent} from "./eisentomato/quadrant/quadrant.component";
+import {TimerComponent} from "./eisentomato/timer/timer.component";
 
 @NgModule({
   declarations: [
@@ -16,14 +17,15 @@ import {QuadrantComponent} from "./eisentomato/quadrant/quadrant.component";
     EisentomatoComponent,
     TopListComponent,
     TaskComponent,
-    QuadrantComponent
+    QuadrantComponent,
+    TimerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
   ],
-  providers: [ListService],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

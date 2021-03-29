@@ -1,12 +1,13 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {List} from "../eisentomato/list";
 import {Task} from "../shared/task.model";
 import {Coordinate} from "../shared/coordinate.model";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ListService {
+export class TaskService {
   public name: string;
 
   private lists: List[] = [
@@ -31,6 +32,8 @@ export class ListService {
 
   constructor() { }
 
+  public dataObservable: BehaviorSubject<Task> = new BehaviorSubject<Task>(this.lists[0].tasks[0]);
+
   getLists() {
     return this.lists.slice();
   }
@@ -39,8 +42,17 @@ export class ListService {
     return this.lists[index];
   }
 
-  updateTaskPosition(index, uuid: string, move: Coordinate) {
+  updateTaskPositionAndPriority(index, uuid: string, move: Coordinate) {
+    const task = this.lists[index].tasks.find(task => task.uuid === uuid);
+
+    task.coordinate.x += move.x;
+    task.coordinate.y += move.y;
+
+    this.dataObservable.next(task);
+    /*
     this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.x += move.x;
     this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.y += move.y;
+    */
+    // todo: find correct task
   }
 }

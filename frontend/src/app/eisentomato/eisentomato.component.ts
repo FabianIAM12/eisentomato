@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {ListService} from "../services/list.service";
+import {TaskService} from "../services/task.service";
 import {List} from "./list";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Coordinate} from "../shared/coordinate.model";
@@ -16,10 +16,10 @@ export class EisentomatoComponent implements OnInit {
   activeList: List;
 
   constructor(private route: ActivatedRoute,
-              private listService: ListService) { }
+              private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.lists = this.listService.getLists();
+    this.lists = this.taskService.getLists();
 
     this.route.params
       .subscribe(
@@ -31,9 +31,9 @@ export class EisentomatoComponent implements OnInit {
 
   public setList(listIndex: number) {
     if (listIndex) {
-      this.activeList = this.listService.getList(listIndex);
+      this.activeList = this.taskService.getList(listIndex);
     } else {
-      this.activeList = this.listService.getList(0);
+      this.activeList = this.taskService.getList(0);
     }
   }
 

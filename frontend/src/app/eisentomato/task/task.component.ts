@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {CdkDragEnd} from "@angular/cdk/drag-drop";
 import {Coordinate} from "../../shared/coordinate.model";
-import {ListService} from "../../services/list.service";
+import {TaskService} from "../../services/task.service";
 import {Task} from 'src/app/shared/task.model';
 
 @Component({
@@ -14,7 +14,7 @@ export class TaskComponent implements AfterViewInit {
   @Input() task: Task;
   @ViewChild('taskElement') taskElement: any;
 
-  constructor(private listService: ListService) {
+  constructor(private taskService: TaskService) {
   }
 
   ngAfterViewInit(): void {
@@ -24,6 +24,6 @@ export class TaskComponent implements AfterViewInit {
 
   public draggedElement(event: CdkDragEnd) {
     // TODO: update list
-    this.listService.updateTaskPosition(0, event.source.getRootElement().id, event.source.getFreeDragPosition());
+    this.taskService.updateTaskPositionAndPriority(0, event.source.getRootElement().id, event.source.getFreeDragPosition());
   }
 }
