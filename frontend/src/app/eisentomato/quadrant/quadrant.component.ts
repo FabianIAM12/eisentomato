@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Task} from '../../shared/task.model';
 import {List} from "../list";
 
@@ -7,19 +7,14 @@ import {List} from "../list";
   templateUrl: './quadrant.component.html',
   styleUrls: ['./quadrant.component.scss']
 })
-export class QuadrantComponent implements OnInit {
+export class QuadrantComponent implements OnChanges {
   tasks: Task[];
   @Input() activeList: List;
   @Input() quadrantId: number;
 
-  public getTasks() {
-    this.tasks = this.activeList.tasks.filter(task => task.quadrant === this.quadrantId);
-  }
-
   constructor() { }
 
-  ngOnInit(): void {
-    this.getTasks()
+  ngOnChanges(): void {
+    this.tasks = this.activeList.tasks.filter(task => task.quadrant === this.quadrantId);
   }
-
 }

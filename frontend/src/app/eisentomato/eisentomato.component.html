@@ -1,7 +1,8 @@
 <div class="container">
   <top-list (emitList)="setList($event)" *ngIf="lists" [lists]="lists"></top-list>
-  <div cdkDropListGroup class="quadrants-container">
-    <div *ngIf="activeList" class="card-deck mb-3 text-center">
+  <div cdkDropListGroup *ngIf="activeList"
+       class="quadrants-container border border-dark">
+    <div class="card-deck text-center">
       <quadrant [activeList]="activeList" [quadrantId]="1"></quadrant>
       <quadrant [activeList]="activeList" [quadrantId]="2"></quadrant>
       <quadrant [activeList]="activeList" [quadrantId]="3"></quadrant>

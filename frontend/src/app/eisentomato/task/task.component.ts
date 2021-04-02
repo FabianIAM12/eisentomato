@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {CdkDragEnd} from "@angular/cdk/drag-drop";
 import {TaskService} from "../../services/task.service";
 import {Task} from 'src/app/shared/task.model';
@@ -9,9 +9,8 @@ import {Task} from 'src/app/shared/task.model';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements AfterViewInit {
-
   @Input() task: Task;
-  @ViewChild('taskElement') taskElement: any;
+  @ViewChild('taskElement') taskElement: ElementRef;
 
   constructor(private taskService: TaskService) { }
 
@@ -21,7 +20,6 @@ export class TaskComponent implements AfterViewInit {
   }
 
   public draggedElement(event: CdkDragEnd) {
-    /* ToDo: quadrantensystem überarbeiten */
-    this.taskService.updateTaskPositionAndPriority(0, event.source.getRootElement(), event.source.getFreeDragPosition());
+    this.taskService.updateTaskPositionAndPriority(event.source.getRootElement(), event.source.getFreeDragPosition());
   }
 }

@@ -23,7 +23,7 @@ export class EisentomatoComponent implements OnInit {
   ngOnInit(): void {
     this.lists = this.taskService.getLists();
 
-    this.route.params
+    this.route.queryParams
       .subscribe(
         (params: Params) => {
           this.setList(+params['id']);
