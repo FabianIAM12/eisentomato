@@ -42,17 +42,37 @@ export class TaskService {
     return this.lists[index];
   }
 
+  setQuadrantValueToObservable(tasks: Task[]) {
+    if (tasks.length > 0) {
+      const result = tasks.slice(-1).pop();
+      this.dataObservable.next(result);
+      return;
+    }
+  }
+
+  setFocusTask(index) {
+    /* description */
+    // 1 = C = Deligate
+    // 2 = A = Instant
+    // 3 = D = Trash
+    // 4 = B = Terminate and do
+    const tasks = this.lists[index].tasks;
+
+    const q2 = tasks.filter(task => task.quadrant === 2);
+    const q4 = tasks.filter(task => task.quadrant === 4);
+    const q1 = tasks.filter(task => task.quadrant === 1);
+    const q3 = tasks.filter(task => task.quadrant === 3);
+
+    console.log(q2.length > 0);
+    console.log(q2);
+  }
+
   updateTaskPositionAndPriority(index, uuid: string, move: Coordinate) {
     const task = this.lists[index].tasks.find(task => task.uuid === uuid);
 
     task.coordinate.x += move.x;
     task.coordinate.y += move.y;
 
-    this.dataObservable.next(task);
-    /*
-    this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.x += move.x;
-    this.lists[index].tasks.find(task => task.uuid === uuid).coordinate.y += move.y;
-    */
-    // todo: find correct task
+    this.setFocusTask(index);
   }
 }

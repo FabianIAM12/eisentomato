@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, Input, ViewChild} from '@angular/core';
 import {CdkDragEnd} from "@angular/cdk/drag-drop";
-import {Coordinate} from "../../shared/coordinate.model";
 import {TaskService} from "../../services/task.service";
 import {Task} from 'src/app/shared/task.model';
 
@@ -24,6 +23,7 @@ export class TaskComponent implements AfterViewInit {
 
   public draggedElement(event: CdkDragEnd) {
     // TODO: update list
+    console.log(event.source.getRootElement().id);
     this.taskService.updateTaskPositionAndPriority(0, event.source.getRootElement().id, event.source.getFreeDragPosition());
   }
 }

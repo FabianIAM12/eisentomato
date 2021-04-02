@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {TaskService} from "../services/task.service";
 import {List} from "./list";
 import {ActivatedRoute, Params} from "@angular/router";
@@ -14,6 +14,8 @@ import {CdkDragEnd} from "@angular/cdk/drag-drop";
 export class EisentomatoComponent implements OnInit {
   lists: List[];
   activeList: List;
+
+  @Input() quadrantId: number;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService) { }
@@ -35,9 +37,5 @@ export class EisentomatoComponent implements OnInit {
     } else {
       this.activeList = this.taskService.getList(0);
     }
-  }
-
-  public getQuadrantTasks(quadrant: number) {
-    return this.activeList.tasks.filter(task => task.quadrant === quadrant);
   }
 }

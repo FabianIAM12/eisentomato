@@ -1,12 +1,11 @@
 <div class="container">
   <top-list (emitList)="setList($event)" *ngIf="lists" [lists]="lists"></top-list>
-
   <div cdkDropListGroup class="quadrants-container">
     <div *ngIf="activeList" class="card-deck mb-3 text-center">
-      <quadrant [tasks]="getQuadrantTasks(1)"></quadrant>
-      <quadrant [tasks]="getQuadrantTasks(2)"></quadrant>
-      <quadrant [tasks]="getQuadrantTasks(3)"></quadrant>
-      <quadrant [tasks]="getQuadrantTasks(4)"></quadrant>
+      <quadrant [activeList]="activeList" [quadrantId]="1"></quadrant>
+      <quadrant [activeList]="activeList" [quadrantId]="2"></quadrant>
+      <quadrant [activeList]="activeList" [quadrantId]="3"></quadrant>
+      <quadrant [activeList]="activeList" [quadrantId]="4"></quadrant>
     </div>
   </div>
   <timer>
