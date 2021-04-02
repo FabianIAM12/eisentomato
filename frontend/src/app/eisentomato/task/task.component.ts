@@ -13,8 +13,7 @@ export class TaskComponent implements AfterViewInit {
   @Input() task: Task;
   @ViewChild('taskElement') taskElement: any;
 
-  constructor(private taskService: TaskService) {
-  }
+  constructor(private taskService: TaskService) { }
 
   ngAfterViewInit(): void {
     this.taskElement.nativeElement.style.left = `${this.task.coordinate.x}.px`;
@@ -22,8 +21,7 @@ export class TaskComponent implements AfterViewInit {
   }
 
   public draggedElement(event: CdkDragEnd) {
-    // TODO: update list
-    console.log(event.source.getRootElement().id);
-    this.taskService.updateTaskPositionAndPriority(0, event.source.getRootElement().id, event.source.getFreeDragPosition());
+    /* ToDo: quadrantensystem überarbeiten */
+    this.taskService.updateTaskPositionAndPriority(0, event.source.getRootElement(), event.source.getFreeDragPosition());
   }
 }

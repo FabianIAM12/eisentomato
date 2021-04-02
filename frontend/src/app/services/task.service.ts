@@ -67,8 +67,8 @@ export class TaskService {
     console.log(q2);
   }
 
-  updateTaskPositionAndPriority(index, uuid: string, move: Coordinate) {
-    const task = this.lists[index].tasks.find(task => task.uuid === uuid);
+  updateTaskPositionAndPriority(index, rootElement: HTMLElement, move: Coordinate) {
+    const task = this.lists[index].tasks.find(task => task.uuid === rootElement.id);
 
     task.coordinate.x += move.x;
     task.coordinate.y += move.y;
