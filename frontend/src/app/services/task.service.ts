@@ -53,13 +53,11 @@ export class TaskService {
     const q3 = tasks.filter(task => task.quadrant === 3);
   }
 
-  updateTaskPositionAndPriority(rootElement: HTMLElement, move: Coordinate) {
+  updateTaskPositionAndPriority(rootElement: HTMLElement, position: Coordinate) {
     for (const list of this.lists) {
       const task = list.tasks.find(task => task.uuid === rootElement.id);
       if (task) {
-        task.coordinate.x += move.x;
-        task.coordinate.y += move.y;
-        console.log(task.coordinate);
+        task.coordinate = position;
         return;
       }
     }
