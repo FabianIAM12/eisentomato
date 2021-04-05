@@ -15,6 +15,7 @@ export class TaskService {
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130001', 'Task1', 1, new Coordinate(0, 0)),
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130002', 'Task2', 1, new Coordinate(0, 0)),
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130003', 'Task3', 1, new Coordinate(340, 0)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130006', 'Task4', 1, new Coordinate(50, 340)),
     ]), new List('Test', [
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130004', 'Test', 1, new Coordinate(0, 0)),
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130005', 'Teests2', 1, new Coordinate(0, 0)),
@@ -32,11 +33,13 @@ export class TaskService {
     return this.lists[index];
   }
 
-  findAndSort(tasks: Task[], side: number) {
+  findAndSort(tasks: Task[], qStartX: number, qStartY: number, side: number) {
     let newTasks = [];
     for (const task of tasks) {
-      console.log(task);
-      if (task.coordinate.x < side && task.coordinate.y < side) {
+      if (task.coordinate.x <= qStartX + side
+        && task.coordinate.y <= qStartY + side
+        && task.coordinate.x >= qStartX
+        && task.coordinate.y >= qStartY) {
         newTasks.push(task);
       }
     }
@@ -44,18 +47,25 @@ export class TaskService {
   }
 
   getQuadrantTasks(quadrant: ElementRef, tasks: Task[]): Task[] {
+    const side = quadrant.nativeElement.offsetHeight;
 
-    if (+quadrant.nativeElement.id === 1) {
-      return this.findAndSort(tasks, quadrant.nativeElement.offsetHeight);
-    }
-    if (+quadrant.nativeElement.id === 2) {
-
-    }
-    if (+quadrant.nativeElement.id === 3) {
-
-    }
-    if (+quadrant.nativeElement.id === 4) {
-
+    switch (+quadrant.nativeElement.id) {
+      case 1: {
+        return this.findAndSort(tasks, 0, 0, side);
+        break;
+      }
+      case 2: {
+        return this.findAndSort(tasks, side, 0, side);
+        break;
+      }
+      case 3: {
+        return this.findAndSort(tasks, 0, side, side);
+        break;
+      }
+      case 4: {
+        return this.findAndSort(tasks, side, side, side);
+        break;
+      }
     }
   }
 
@@ -84,7 +94,7 @@ export class TaskService {
   }
 
   updateTaskPositionAndPriority(rootElement: HTMLElement, position: Coordinate) {
-    let quadrant =  1;
+    let quadrant = 1;
 
     for (const list of this.lists) {
       const task = list.tasks.find(task => task.uuid === rootElement.id);
