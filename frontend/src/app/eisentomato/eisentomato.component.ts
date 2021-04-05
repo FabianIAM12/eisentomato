@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {TaskService} from "../services/task.service";
 import {List} from "./list";
 import {ActivatedRoute, Params} from "@angular/router";
@@ -16,6 +16,7 @@ export class EisentomatoComponent implements OnInit {
   activeList: List;
 
   @Input() quadrantId: number;
+  @ViewChild('wrapper') wrapper: ElementRef;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService) { }

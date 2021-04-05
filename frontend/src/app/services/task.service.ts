@@ -13,7 +13,7 @@ export class TaskService {
   private lists: List[] = [
     new List('Job', [
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130001', 'Aquise', 1, new Coordinate(0, 0)),
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130002', 'Aquise2', 1, new Coordinate(0, 0)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130002', 'Aquise2', 2, new Coordinate(0, 0)),
     ]), new List('Test', [
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130003', 'Test', 1, new Coordinate(0, 0)),
       new Task('58a4c892-8cba-11eb-8dcd-0242ac130004', 'Teests2', 1, new Coordinate(0, 0)),
@@ -47,17 +47,22 @@ export class TaskService {
     // 4 = B = Terminate and do
     const tasks = this.lists[index].tasks;
 
+    /*
     const q2 = tasks.filter(task => task.quadrant === 2);
     const q4 = tasks.filter(task => task.quadrant === 4);
     const q1 = tasks.filter(task => task.quadrant === 1);
     const q3 = tasks.filter(task => task.quadrant === 3);
+     */
   }
 
   updateTaskPositionAndPriority(rootElement: HTMLElement, position: Coordinate) {
+    let quadrant =  1;
+
     for (const list of this.lists) {
       const task = list.tasks.find(task => task.uuid === rootElement.id);
       if (task) {
         task.coordinate = position;
+        task.quadrant = quadrant;
         return;
       }
     }

@@ -15,6 +15,6 @@ export class QuadrantComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(): void {
-    this.tasks = this.activeList.tasks.filter(task => task.quadrant === this.quadrantId);
+    this.tasks = this.activeList.tasks;
   }
 }

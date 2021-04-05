@@ -16,3 +16,10 @@
   display: flex;
   flex-flow: row wrap;
 }
+
+.quarter {
+  width: 33vh;
+  height: 33vh;
+  float: left;
+  padding: 0 0 0 0!important;
+}

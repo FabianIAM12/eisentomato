@@ -1,7 +1,7 @@
 <div #taskElement
      (cdkDragEnded)="draggedElement($event)"
      cdkDrag
-     cdkDragBoundary=".quadrants-container"
+     cdkDragBoundary=".quadrant-wrapper"
      class="example-box text-center" id="{{task.uuid}}">
   {{ task.title }}
 </div>

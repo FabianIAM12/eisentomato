@@ -10,6 +10,7 @@ import {TopListComponent} from "./eisentomato/top-list/top-list.component";
 import {TaskComponent} from "./eisentomato/task/task.component";
 import {QuadrantComponent} from "./eisentomato/quadrant/quadrant.component";
 import {TimerComponent} from "./eisentomato/timer/timer.component";
+import {FooterComponent} from "./eisentomato/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {TimerComponent} from "./eisentomato/timer/timer.component";
     TaskComponent,
     QuadrantComponent,
     TimerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

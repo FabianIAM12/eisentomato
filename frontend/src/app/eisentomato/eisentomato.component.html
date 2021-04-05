@@ -1,56 +1,17 @@
 <div class="container">
   <top-list (emitList)="setList($event)" *ngIf="lists" [lists]="lists"></top-list>
-  <div cdkDropListGroup *ngIf="activeList"
+  <div *ngIf="activeList" cdkDropListGroup
        class="border border-dark">
     <div class="contents quadrant-wrapper">
-      <div class="col-md-6 quarter" style="background-color:blue;">1</div>
-      <div class="col-md-6 quarter" style="background-color:red;">2</div>
-      <div class="col-md-6 quarter" style="background-color:yellow;">3</div>
-      <div class="col-md-6 quarter" style="background-color:green;">4</div>
+      <quadrant [activeList]="activeList" [quadrantId]="1"></quadrant>
+      <quadrant [activeList]="activeList" [quadrantId]="2"></quadrant>
+      <quadrant [activeList]="activeList" [quadrantId]="3"></quadrant>
+      <quadrant [activeList]="activeList" [quadrantId]="4"></quadrant>
     </div>
-
-    <!--
-    <quadrant [activeList]="activeList" [quadrantId]="1"></quadrant>
-    <quadrant [activeList]="activeList" [quadrantId]="2"></quadrant>
-    <quadrant [activeList]="activeList" [quadrantId]="3"></quadrant>
-    <quadrant [activeList]="activeList" [quadrantId]="4"></quadrant> -->
-
   </div>
-
   <timer>
   </timer>
 </div>
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
-  <div class="row">
-    <div class="col-12 col-md">
-      <img alt="" class="mb-2" height="24" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-           width="24">
-      <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Features</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Cool stuff</a></li>
-        <li><a class="text-muted" href="#">Random feature</a></li>
-        <li><a class="text-muted" href="#">Team feature</a></li>
-        <li><a class="text-muted" href="#">Stuff for developers</a></li>
-        <li><a class="text-muted" href="#">Another one</a></li>
-        <li><a class="text-muted" href="#">Last time</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Figma Prototype</a></li>
-        <li><a class="text-muted" href="#">Miro Board</a></li>
-      </ul>
-    </div>
-    <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-        <li><a class="text-muted" href="#">Imprint</a></li>
-        <li><a class="text-muted" href="#">About me</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+<!--
+<footer></footer>
+-->

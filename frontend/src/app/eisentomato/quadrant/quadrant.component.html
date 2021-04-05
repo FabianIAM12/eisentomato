@@ -1,4 +1,5 @@
-<div class="card single-quadrant box-shadow card-height" *ngIf="quadrantId" [id]='quadrantId'>
+<div class="col-md-6 quarter box-shadow border border-dark" *ngIf="quadrantId" [id]='quadrantId'>
     <task *ngFor="let task of tasks" [task]="task"></task>
     <button class="btn btn-primary position-absolute m-2 btn-position" type="button">Add</button>
 </div>
+
