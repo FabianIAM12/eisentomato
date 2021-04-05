@@ -1,2 +1,12 @@
-.quadrants-container {
+.quadrant-wrapper {
+  padding: 0;
+  margin: auto;
+  height: 66vh;
+  width: 66vh;
+}
+
+.quarter {
+  width: 33vh;
+  height: 33vh;
+  float: left;
 }
