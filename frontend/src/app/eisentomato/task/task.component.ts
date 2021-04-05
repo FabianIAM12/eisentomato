@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, Input, ViewChild} from '@angular/core';
 import {CdkDragEnd, CdkDragMove} from "@angular/cdk/drag-drop";
 import {TaskService} from "../../services/task.service";
 import {Task} from 'src/app/shared/task.model';
@@ -23,13 +23,20 @@ export class TaskComponent implements AfterViewInit {
   }
 
   public draggedElement(event: CdkDragEnd) {
-    const eleRect = event.source.element.nativeElement.parentNode.parentElement.parentElement.parentElement.getBoundingClientRect();
+    const parentQuart = event.source.element.nativeElement
+      .parentNode.parentElement
+      .parentElement.parentElement
+      .getBoundingClientRect();
+
     const targetRect = this.taskElement.nativeElement.getBoundingClientRect();
     // Calculate the top and left positions
-    const top = eleRect.top - targetRect.top;
-    const left = eleRect.left - targetRect.left;
+    let top = parentQuart.top - targetRect.top;
+    let left = parentQuart.left - targetRect.left -1;
 
-    const position = new Coordinate(-left - 1, -top - this.taskElement.nativeElement.offsetHeight - 1);
+    top *= -1;
+    left *= -1;
+
+    const position = new Coordinate(left, top);
     this.taskService.updateTaskPositionAndPriority(event.source.getRootElement(), position);
   }
 }
