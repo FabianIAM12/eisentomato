@@ -4,6 +4,8 @@ import {
   Component,
   ElementRef,
   Input,
+  OnDestroy,
+  OnInit,
   ViewChild
 } from '@angular/core';
 import {Task} from '../../shared/task.model';
@@ -15,19 +17,36 @@ import {TaskService} from "../../services/task.service";
   templateUrl: './quadrant.component.html',
   styleUrls: ['./quadrant.component.scss']
 })
-export class QuadrantComponent implements AfterViewInit {
+export class QuadrantComponent implements AfterViewInit, OnInit, OnDestroy {
   tasks: Task[];
-  @Input() activeList: List;
   @Input() quadrantId: number;
-
   @ViewChild('quadrant') quadrant: ElementRef;
+  activeList: List;
+  listIndex: number = 0;
 
   constructor(private taskService: TaskService,
-              private cdRef: ChangeDetectorRef) { }
+              private cdRef: ChangeDetectorRef) {
+  }
 
-  ngAfterViewInit(): void {
+  getTasks(): void {
+    this.activeList = this.taskService.getList(this.listIndex);
     this.tasks = this.taskService.getQuadrantTasks(this.quadrant,
       this.activeList.tasks);
+  }
+
+  ngAfterViewInit(): void {
+    this.getTasks();
     this.cdRef.detectChanges();
+  }
+
+  ngOnInit(): void {
+    this.taskService.listObservable.subscribe(listIndex => {
+      this.listIndex = listIndex;
+      this.getTasks();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.taskService.listObservable.unsubscribe();
   }
 }

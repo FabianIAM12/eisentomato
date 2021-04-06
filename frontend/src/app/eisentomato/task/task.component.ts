@@ -19,7 +19,6 @@ export class TaskComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initialPosition = this.task.coordinate;
 
-    /* TODO: unabhängig abballern von parent */
     this.taskElement.nativeElement.style.left = `${this.initialPosition.x}.px`;
     this.taskElement.nativeElement.style.top = `${this.initialPosition.y}.px`;
   }
