@@ -91,11 +91,10 @@ export class TaskService {
      */
   }
 
-  updateTaskPositionAndPriority(rootElement: HTMLElement, position: Coordinate, quadrant: number) {
+  updateTaskPositionAndPriority(elementUuid: string, position: Coordinate, quadrant: number) {
     for (const list of this.lists) {
-      const task = list.tasks.find(task => task.uuid === rootElement.id);
+      const task = list.tasks.find(task => task.uuid === elementUuid);
       if (task) {
-        console.log(position, quadrant)
         task.coordinate = position;
         task.quadrant = quadrant;
         return;
