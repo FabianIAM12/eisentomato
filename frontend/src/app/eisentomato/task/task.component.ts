@@ -1,11 +1,8 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
   Input,
-  OnDestroy,
-  OnInit,
   ViewChild
 } from '@angular/core';
 import {CdkDragEnd} from "@angular/cdk/drag-drop";
@@ -33,38 +30,42 @@ export class TaskComponent implements AfterViewInit {
   }
 
   public draggedElement(event: CdkDragEnd) {
-    const elementUuid = event.source.getRootElement().id;
-    const quadrantWidth = event.source.element.nativeElement.parentNode.parentElement.getBoundingClientRect().width;
+    const rootElement = event.source.getRootElement();
 
-    // position in quadrant
-    const targetRect = this.taskElement.nativeElement.getBoundingClientRect();
+    const quadrantWidth = rootElement.parentNode.parentElement.getBoundingClientRect().width;
+    const targetRect = rootElement.getBoundingClientRect();
 
-    /* decide quadrant */
-    const rectMain = event.source.element.nativeElement.parentNode.parentElement.parentElement.parentElement.getBoundingClientRect();
-    const positionTotal = {x: (rectMain.top - targetRect.top) * -1, y: (rectMain.left - targetRect.left) * -1};
+    /* decide which quadrant task is in */
+    const rectMain = rootElement.parentNode.parentElement.parentElement.parentElement.getBoundingClientRect();
+    const positionTotal = {x: (rectMain.left - targetRect.left) * -1, y: (rectMain.top - targetRect.top) * -1};
+
+    // set relative position
+    console.log(positionTotal.x / rootElement.parentNode.parentElement.parentElement.parentElement.getBoundingClientRect().width);
+    console.log(positionTotal.y / rootElement.parentNode.parentElement.parentElement.parentElement.getBoundingClientRect().height);
 
     let quadrantNr = 0;
     if (positionTotal.x < quadrantWidth) {
       if (positionTotal.y < quadrantWidth) {
         quadrantNr = 1;
       } else {
-        quadrantNr = 2;
+        quadrantNr = 3;
       }
     }
 
     if (positionTotal.x >= quadrantWidth) {
       if (positionTotal.y < quadrantWidth) {
-        quadrantNr = 3;
+        quadrantNr = 2;
       } else {
         quadrantNr = 4;
       }
     }
 
+    // position in selected quadrant
     const selectedQuadrant = document.getElementById(quadrantNr.toString()).getBoundingClientRect();
     let top = (selectedQuadrant.top - targetRect.top) * -1;
     let left = (selectedQuadrant.left - targetRect.left) * -1;
     const position = new Coordinate(Math.round(left), Math.round(top));
 
-    this.taskService.updateTaskPositionAndPriority(elementUuid, position, quadrantNr);
+    this.taskService.updateTaskPositionAndPriority(rootElement.id, position, quadrantNr);
   }
 }
