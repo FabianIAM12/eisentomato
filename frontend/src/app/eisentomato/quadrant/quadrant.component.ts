@@ -25,13 +25,11 @@ export class QuadrantComponent implements AfterViewInit, OnInit, OnDestroy {
   listIndex: number = 0;
 
   constructor(private taskService: TaskService,
-              private cdRef: ChangeDetectorRef) {
-  }
+              private cdRef: ChangeDetectorRef) { }
 
   getTasks(): void {
     this.activeList = this.taskService.getList(this.listIndex);
-    this.tasks = this.taskService.getQuadrantTasks(this.quadrant,
-      this.activeList.tasks);
+    this.tasks = this.taskService.getQuadrantTasks(+this.quadrant.nativeElement.id, this.activeList.tasks);
   }
 
   ngAfterViewInit(): void {

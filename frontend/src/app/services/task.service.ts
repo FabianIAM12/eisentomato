@@ -1,4 +1,4 @@
-import {ElementRef, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {List} from "../eisentomato/list";
 import {Task} from "../shared/task.model";
 import {Coordinate} from "../shared/coordinate.model";
@@ -9,22 +9,21 @@ import {BehaviorSubject, Subject} from "rxjs";
 })
 export class TaskService {
   public name: string;
-
+  public listObservable: Subject<number> = new Subject<number>();
   private lists: List[] = [
     new List('Job', [
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130001', 'Task6', new Coordinate(320, 50)),
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130002', 'Task7', new Coordinate(40, 90)),
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130003', 'Task8', new Coordinate(80, 339)),
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130004', 'Task1', new Coordinate(360, 123)),
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130005', 'Task2', new Coordinate(380, 200)),
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130006', 'Task3', new Coordinate(400, 333)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130001', 'Task6', 1, new Coordinate(0, 0)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130002', 'Task7', 2, new Coordinate(0, 0)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130003', 'Task8', 2, new Coordinate(80, 339)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130004', 'Task1', 4, new Coordinate(360, 123)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130005', 'Task2', 3, new Coordinate(380, 200)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130006', 'Task3', 2, new Coordinate(280, 333)),
     ]),
     new List('Test', [
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130007', 'Test', new Coordinate(200, 30)),
-      new Task('58a4c892-8cba-11eb-8dcd-0242ac130008', 'Teests2', new Coordinate(0, 0)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130007', 'Test', 4, new Coordinate(200, 30)),
+      new Task('58a4c892-8cba-11eb-8dcd-0242ac130008', 'Teests2', 4, new Coordinate(0, 0)),
     ])];
   public dataObservable: BehaviorSubject<Task> = new BehaviorSubject<Task>(this.lists[0].tasks[0]);
-  public listObservable: Subject<number> = new Subject<number>();
 
   constructor() {
   }
@@ -33,30 +32,15 @@ export class TaskService {
     return this.lists.slice();
   }
 
-  getList(index: number) {
+  getList(index: number): List {
     return this.lists[index];
   }
 
-  findAndSort(tasks: Task[], qStartX: number, qStartY: number, side: number) {
-    let newTasks = [];
-    for (const task of tasks) {
-      if (task.coordinate.x < qStartX + side
-        && task.coordinate.y < qStartY + side
-        && task.coordinate.x >= qStartX
-        && task.coordinate.y >= qStartY) {
-
-        // update coordinates to match parent
-        /* ToDo: doesnt work */
-        console.log(qStartX, qStartY);
-
-        task.coordinate.x -= qStartX;
-        task.coordinate.y -= qStartY;
-        newTasks.push(task);
-      }
-    }
-    return newTasks;
+  getQuadrantTasks(quadrant: number, tasks: Array<Task>) {
+    return tasks.filter(task => task.quadrant === quadrant);
   }
 
+  /*
   getQuadrantTasks(quadrant: ElementRef, tasks: Task[]): Task[] {
     const sideSize = quadrant.nativeElement.offsetHeight;
     const quadrantId = +quadrant.nativeElement.id;
@@ -81,6 +65,7 @@ export class TaskService {
 
     }
   }
+  */
 
   setQuadrantValueToObservable(tasks: Task[]) {
     if (tasks.length > 0) {
@@ -106,11 +91,13 @@ export class TaskService {
      */
   }
 
-  updateTaskPositionAndPriority(rootElement: HTMLElement, position: Coordinate) {
+  updateTaskPositionAndPriority(rootElement: HTMLElement, position: Coordinate, quadrant: number) {
     for (const list of this.lists) {
       const task = list.tasks.find(task => task.uuid === rootElement.id);
       if (task) {
+        console.log(position, quadrant)
         task.coordinate = position;
+        task.quadrant = quadrant;
         return;
       }
     }

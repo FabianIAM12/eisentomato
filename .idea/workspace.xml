@@ -1,81 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="81c3845b-df42-416b-ac7e-c233713b86b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/e2e/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/e2e/protractor.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/e2e/src/app.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/e2e/src/app.po.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/e2e/src/app.po.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/e2e/tsconfig.e2e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/app-routing.module.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/app-routing.module.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/app.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/app.component.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/app.module.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/app.module.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/delements/delement.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/delements/delement.component.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/eisenhower/eisenhower.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/eisenhower/eisenhower.component.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/todo/todo-data.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/todo/todo-data.service.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/todo/todo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/app/todo/todo.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/environments/environment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/environments/environment.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/environments/environment.prod.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/environments/environment.prod.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/main.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/polyfills.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/app/polyfills.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/app.component.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/app.component.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/app.component.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/app.component.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo-data.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo-data.service.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo-data.service.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo-data.service.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/app/todo/todo.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/polyfills.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/polyfills.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/out-tsc/spec/test.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/delements/delement.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/delements/delement.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/delements/delement.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/eisenhower/eisenhower.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/eisenhower/eisenhower.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/eisenhower/eisenhower.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/todo/todo-data.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/todo/todo-data.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/todo/todo.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/todo/todo.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/browserslist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/karma.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/polyfills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/tsconfig.spec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/tslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/eisentomato/quadrant/quadrant.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/eisentomato/quadrant/quadrant.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/eisentomato/task/task.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/eisentomato/task/task.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/eisentomato/task/task.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/eisentomato/task/task.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/eisentomato/task/task.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/eisentomato/task/task.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/task.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/task.model.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +22,13 @@
   <component name="DefaultGradleProjectSettings">
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -102,6 +46,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -189,7 +141,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555526093061" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IQaRS_Frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -200,14 +152,16 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="D:\Code\eisentomato\backend\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\eisentomato\frontend\src\app\shared" />
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Code\eisentomato\frontend\src\app\eisentomato" />
       <recent name="D:\Code\eisentomato" />
       <recent name="D:\Code\eisentomato\frontend" />
     </key>
@@ -253,7 +207,20 @@
       <workItem from="1556707731339" duration="10890000" />
       <workItem from="1556735415247" duration="2220000" />
       <workItem from="1615552516297" duration="319000" />
-      <workItem from="1615553068864" duration="1718000" />
+      <workItem from="1615553068864" duration="3115000" />
+      <workItem from="1615557207261" duration="323000" />
+      <workItem from="1615557632357" duration="1258000" />
+      <workItem from="1616488651663" duration="14753000" />
+      <workItem from="1616512193147" duration="6789000" />
+      <workItem from="1616572641570" duration="25827000" />
+      <workItem from="1616863913867" duration="2206000" />
+      <workItem from="1616923670457" duration="275000" />
+      <workItem from="1617007824231" duration="610000" />
+      <workItem from="1617438482845" duration="8047000" />
+      <workItem from="1617632594495" duration="470000" />
+      <workItem from="1617633078675" duration="15248000" />
+      <workItem from="1617702808895" duration="599000" />
+      <workItem from="1617961099630" duration="20111000" />
     </task>
     <servers />
   </component>
@@ -330,6 +297,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
